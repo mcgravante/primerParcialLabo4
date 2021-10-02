@@ -21,15 +21,14 @@ export class ActorService {
     return this.firestore.collection("actores").doc(key).valueChanges();
   }
 
-
-  guardarActor(actor:Actor) {
+  guardarActor(actor: Actor) {
     return this.firestore.collection("actores").add({
-      // id : pelicula.id,
-      // nombre : pelicula.nombre,
-      // tipo : pelicula.tipo,
-      // fechaDeEstreno : pelicula.fechaDeEstreno,
-      // cantidadDePublico : pelicula.cantidadDePublico,
-      // fotoDeLaPelicula : pelicula.fotoDeLaPelicula,
+      nombre: actor.nombre,
+      apellido: actor.apellido,
+      email: actor.email,
+      direccion: actor.direccion,
+      pais: actor.pais,
     });
   }
+
 }

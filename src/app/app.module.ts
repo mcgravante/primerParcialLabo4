@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+
 
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
@@ -15,6 +17,9 @@ import { ActorAltaComponent } from './componentes/actor-alta/actor-alta.componen
 import { ActorListadoComponent } from './componentes/actor-listado/actor-listado.component';
 import { PeliculaListadoComponent } from './componentes/pelicula-listado/pelicula-listado.component';
 import { TablaPeliculaComponent } from './componentes/tabla-pelicula/tabla-pelicula.component';
+import { DetallePeliculaComponent } from './componentes/detalle-pelicula/detalle-pelicula.component';
+import { TablaPaisesComponent } from './componentes/tabla-paises/tabla-paises.component';
+import { TablaActorComponent } from './componentes/tabla-actor/tabla-actor.component';
 
 @NgModule({
   declarations: [
@@ -25,14 +30,18 @@ import { TablaPeliculaComponent } from './componentes/tabla-pelicula/tabla-pelic
     ActorAltaComponent,
     ActorListadoComponent,
     PeliculaListadoComponent,
-    TablaPeliculaComponent
+    TablaPeliculaComponent,
+    DetallePeliculaComponent,
+    TablaPaisesComponent,
+    TablaActorComponent,
   ],
   imports: [
     BrowserModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireDatabaseModule,
     AngularFirestoreModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [AngularFirestoreModule],
   bootstrap: [AppComponent]

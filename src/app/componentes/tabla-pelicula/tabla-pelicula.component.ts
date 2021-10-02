@@ -7,7 +7,7 @@ import { Pelicula } from 'src/app/clases/pelicula';
   styleUrls: ['./tabla-pelicula.component.scss']
 })
 export class TablaPeliculaComponent implements OnInit {
-  @Output() seSelecciono: EventEmitter<any> = new EventEmitter<any>();
+  @Output() seSeleccionoPelicula: EventEmitter<any> = new EventEmitter<any>();
   @Input() arrayPeliculas: Pelicula[];
   @Input() vista: boolean;
 
@@ -17,7 +17,7 @@ export class TablaPeliculaComponent implements OnInit {
   }
 
   SeleccionarPelicula(pelicula: Pelicula) {
-    this.seSelecciono.emit(pelicula);
+    this.seSeleccionoPelicula.emit(pelicula);
   }
 
 }
