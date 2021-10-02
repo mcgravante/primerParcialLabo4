@@ -10,25 +10,25 @@ import { PeliculaListadoComponent } from './componentes/pelicula-listado/pelicul
 const routes: Routes = [
   { path: '', redirectTo: 'bienvenido', pathMatch: 'full' },
   {
-    path: 'peliculas', component: PeliculaAltaComponent,
+    path: 'peliculas',
     children:
       [
-        { path: '', component: PeliculaAltaComponent },
+        { path: '', redirectTo: 'alta', pathMatch: 'full' },
         { path: 'alta', component: PeliculaAltaComponent },
         { path: 'listado', component: PeliculaListadoComponent }
       ]
   },
   {
-    path: 'actor', component: ActorAltaComponent,
+    path: 'actor',
     children:
       [
-        { path: '', component: ActorAltaComponent },
+        { path: '', redirectTo: 'alta', pathMatch: 'full' },
         { path: 'alta', component: ActorAltaComponent },
         { path: 'listado', component: ActorListadoComponent }
       ]
   },
   { path: 'bienvenido', component: HomeComponent },
-  { path: 'búsqueda', component: BusquedaComponent },
+  { path: 'busqueda', component: BusquedaComponent },
 
   { path: '**', pathMatch: 'full', redirectTo: 'bienvenido' },
 
