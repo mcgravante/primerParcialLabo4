@@ -8,24 +8,23 @@ export class Pelicula {
     fechaDeEstreno: string;
     cantidadDePublico: number;
     fotoDeLaPelicula: string;
-    actor: Actor;
+    actorId: string;
 
-    constructor(id: string, nombre: string, tipo: Tipo, fechaDeEstreno: string, cantidadDePublico: number, fotoDeLaPelicula: string, actor: Actor) {
-        this.id = id;
+    constructor(nombre: string, tipo: Tipo, fechaDeEstreno: string, cantidadDePublico: number, fotoDeLaPelicula: string, actorId: string) {
         this.nombre = nombre;
         this.tipo = tipo;
         this.fechaDeEstreno = fechaDeEstreno;
         this.cantidadDePublico = cantidadDePublico;
         this.fotoDeLaPelicula = fotoDeLaPelicula;
-        this.actor = actor;
+        this.actorId = actorId;
     }
 }
 
 export enum Tipo {
-    terror,
-    comedia,
-    amor,
-    otros
+    terror="terror",
+    comedia="comedia",
+    amor="amor",
+    otros="otros"
 }
 
 

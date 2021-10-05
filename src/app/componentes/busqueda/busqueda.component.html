@@ -43,7 +43,7 @@
         <div class="jumbotron">
             <div class="container">
                 <h1 class="display-3">Listado de películas</h1>
-                <app-tabla-pelicula (seSeleccionoPelicula)="mostrar($event)" [arrayPeliculas]="peliculasListadoEj"
+                <app-tabla-pelicula (seSeleccionoPelicula)="mostrar($event)" [arrayPeliculas]="peliculasListado"
                     [vista]="vista"></app-tabla-pelicula>
                 <p><a class="btn btn-primary btn-lg" (click)="CambiarVista()" role="button">cambiar vista</a></p>
             </div>

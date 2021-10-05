@@ -2,6 +2,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
+import { CommonModule } from '@angular/common';
+
 
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
@@ -20,6 +24,9 @@ import { TablaPeliculaComponent } from './componentes/tabla-pelicula/tabla-pelic
 import { DetallePeliculaComponent } from './componentes/detalle-pelicula/detalle-pelicula.component';
 import { TablaPaisesComponent } from './componentes/tabla-paises/tabla-paises.component';
 import { TablaActorComponent } from './componentes/tabla-actor/tabla-actor.component';
+import { HttpClientModule } from '@angular/common/http';
+import { AngularFireStorageModule } from '@angular/fire/compat/storage';    // For Storage    <<<<<<
+
 
 @NgModule({
   declarations: [
@@ -41,7 +48,12 @@ import { TablaActorComponent } from './componentes/tabla-actor/tabla-actor.compo
     AngularFireDatabaseModule,
     AngularFirestoreModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
+    AngularFireStorageModule,
+    CommonModule,
+    BrowserAnimationsModule, // required animations module
+    ToastrModule.forRoot(), // ToastrModule added
   ],
   providers: [AngularFirestoreModule],
   bootstrap: [AppComponent]

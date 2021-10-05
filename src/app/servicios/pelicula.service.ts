@@ -22,15 +22,14 @@ export class PeliculaService {
   }
 
 
-  guardarPelicula(pelicula:Pelicula) {
+  guardarPelicula(pelicula: Pelicula) {
     return this.firestore.collection("peliculas").add({
-      id : pelicula.id,
-      nombre : pelicula.nombre,
-      tipo : pelicula.tipo,
-      fechaDeEstreno : pelicula.fechaDeEstreno,
-      cantidadDePublico : pelicula.cantidadDePublico,
-      fotoDeLaPelicula : pelicula.fotoDeLaPelicula,
-      actor: pelicula.actor
+      nombre: pelicula.nombre,
+      tipo: pelicula.tipo,
+      fechaDeEstreno: pelicula.fechaDeEstreno,
+      cantidadDePublico: pelicula.cantidadDePublico,
+      fotoDeLaPelicula: pelicula.fotoDeLaPelicula,
+      actorId: pelicula.actorId
     });
   }
 }
