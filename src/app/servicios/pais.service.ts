@@ -10,8 +10,12 @@ export class PaisService {
   constructor(private http: HttpClient) { }
 
   getPaises() {
-    return this.http.get("https://restcountries.com/v3.1/all")
+    return this.http.get("https://restcountries.com/v3.1/all");
   }
 
-  
+  getPaisByName(name: string) {
+    return this.http.get("https://restcountries.com/v3.1/name/"+name);
+  }
+
+
 }

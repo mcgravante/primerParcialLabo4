@@ -25,7 +25,10 @@ import { DetallePeliculaComponent } from './componentes/detalle-pelicula/detalle
 import { TablaPaisesComponent } from './componentes/tabla-paises/tabla-paises.component';
 import { TablaActorComponent } from './componentes/tabla-actor/tabla-actor.component';
 import { HttpClientModule } from '@angular/common/http';
-import { AngularFireStorageModule } from '@angular/fire/compat/storage';    // For Storage    <<<<<<
+import { AngularFireStorageModule } from '@angular/fire/compat/storage';
+import { ActorPeliculaComponent } from './componentes/actor-pelicula/actor-pelicula.component';
+import { DetallePaisComponent } from './componentes/detalle-pais/detalle-pais.component';
+import { DetalleActorComponent } from './componentes/detalle-actor/detalle-actor.component';    // For Storage    <<<<<<
 
 
 @NgModule({
@@ -41,6 +44,9 @@ import { AngularFireStorageModule } from '@angular/fire/compat/storage';    // F
     DetallePeliculaComponent,
     TablaPaisesComponent,
     TablaActorComponent,
+    ActorPeliculaComponent,
+    DetallePaisComponent,
+    DetalleActorComponent,
   ],
   imports: [
     BrowserModule,

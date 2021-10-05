@@ -9,10 +9,17 @@ import { Pelicula } from 'src/app/clases/pelicula';
 export class DetallePeliculaComponent implements OnInit {
   @Input() pelicula: Pelicula;
 
+
   constructor() { }
 
   ngOnInit(): void {
   }
+
+limpiar(){
+  if (this.pelicula!=null){
+   this.pelicula=null;
+  }
+}
 
 
 }
