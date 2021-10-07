@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
@@ -28,7 +28,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 import { ActorPeliculaComponent } from './componentes/actor-pelicula/actor-pelicula.component';
 import { DetallePaisComponent } from './componentes/detalle-pais/detalle-pais.component';
-import { DetalleActorComponent } from './componentes/detalle-actor/detalle-actor.component';    // For Storage    <<<<<<
+import { DetalleActorComponent } from './componentes/detalle-actor/detalle-actor.component';
+import { LoginComponent } from './componentes/login/login.component';
+import { AltaRepartidorComponent } from './componentes/alta-repartidor/alta-repartidor.component';
+import { NavBarComponent } from './componentes/nav-bar/nav-bar.component';
+import { TablaActoresComponent } from './componentes/tabla-actores/tabla-actores.component';
+import { AltaProductoComponent } from './componentes/alta-producto/alta-producto.component';
+import { ProductoDetalleComponent } from './componentes/producto-detalle/producto-detalle.component';    // For Storage    <<<<<<
 
 
 @NgModule({
@@ -47,6 +53,12 @@ import { DetalleActorComponent } from './componentes/detalle-actor/detalle-actor
     ActorPeliculaComponent,
     DetallePaisComponent,
     DetalleActorComponent,
+    LoginComponent,
+    AltaRepartidorComponent,
+    NavBarComponent,
+    TablaActoresComponent,
+    AltaProductoComponent,
+    ProductoDetalleComponent,
   ],
   imports: [
     BrowserModule,
@@ -55,6 +67,7 @@ import { DetalleActorComponent } from './componentes/detalle-actor/detalle-actor
     AngularFirestoreModule,
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     AngularFireStorageModule,
     CommonModule,

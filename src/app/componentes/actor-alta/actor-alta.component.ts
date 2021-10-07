@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { Actor } from 'src/app/clases/actor';
 import { ActorService } from 'src/app/servicios/actor.service';
@@ -9,23 +10,32 @@ import { ActorService } from 'src/app/servicios/actor.service';
   styleUrls: ['./actor-alta.component.scss']
 })
 export class ActorAltaComponent implements OnInit {
-  public nombre;
-  public apellido;
-  public email;
-  public direccion;
-  public pais;
+  formularioAlta: FormGroup;
 
-  constructor(private actorService:ActorService,  private toastr: ToastrService) { }
+  constructor(private actorService: ActorService, private toastr: ToastrService, public fb: FormBuilder) {
+    this.formularioAlta = fb.group({
+      nombre: ["", Validators.required],
+      apellido: ["", Validators.required],
+      email: ["", Validators.required],
+      direccion: ["", Validators.required],
+      pais: ["", Validators.required]
+    })
+  }
 
   ngOnInit(): void {
   }
 
-  cambiarPais(paisNombre:string){
-    this.pais=paisNombre;
+  cambiarPais(paisNombre: string) {
+    this.formularioAlta.controls['pais'].setValue(paisNombre);
   }
 
-  guardarActor(){
-    let actor = new Actor(this.nombre, this.apellido, this.email, this.direccion, this.pais);
+  guardarActor() {
+    let nombre = this.formularioAlta.controls['nombre'].value;
+    let apellido = this.formularioAlta.controls['apellido'].value;
+    let email = this.formularioAlta.controls['email'].value;
+    let direccion = this.formularioAlta.controls['direccion'].value;
+    let pais = this.formularioAlta.controls['pais'].value;
+    let actor = new Actor(nombre, apellido, email, direccion, pais);
     this.actorService.guardarActor(actor).then(resp => {
       this.showSuccess();
     }).catch((error) => {

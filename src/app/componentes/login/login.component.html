@@ -1,0 +1,26 @@
+<app-nav-bar [isLogged]="isLogged"></app-nav-bar>
+
+<!doctype html>
+<html lang="en">
+
+<body class="text-center">
+    <form class="form-signin">
+        <h1 class="h3 mb-3 font-weight-normal">Por favor, ingrese sus datos</h1>
+        <label for="inputEmail" class="sr-only">Usuario</label>
+        <br>
+        <input type="text" placeholder="Usuario" [(ngModel)]='user' name="uname" required>
+        <br>
+        <label for="inputPassword" class="sr-only">Clave</label>
+        <br>
+        <input type="password" placeholder="Clave" [(ngModel)]='password' name="psw" required>
+        <br>
+        <br>
+        <button (click)="Entrar()">Ingresar</button>
+        <br>
+        <br>
+        <input type="submit" (click)="CompletarCamposAdmin()" value="Completar Campos Admin">
+        <input type="submit" (click)="CompletarCamposEmpleado()" value="Completar Campos Empleado">
+    </form>
+</body>
+
+</html>

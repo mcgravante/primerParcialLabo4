@@ -30,9 +30,11 @@ export class TablaPaisesComponent implements OnInit {
     let bandera: string;
     this.paisService.getPaises().subscribe((paises: any) => {
       for (let index = 0; index < paises.length; index++) {
-        name = paises[index].name.common;
-        bandera = paises[index].flags.png;
-        this.listaPaises.push(new Pais(name, bandera))
+        if (paises[index].region == "Europe" || paises[index].region == "Africa") {
+          name = paises[index].name.common;
+          bandera = paises[index].flags.png;
+          this.listaPaises.push(new Pais(name, bandera))
+        }
       }
       this.listaPaises = this.shuffle(this.listaPaises).slice(0, 5);
     }
