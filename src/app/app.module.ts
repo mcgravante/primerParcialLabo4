@@ -15,50 +15,40 @@ import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './componentes/home/home.component';
-import { BusquedaComponent } from './componentes/busqueda/busqueda.component';
-import { PeliculaAltaComponent } from './componentes/pelicula-alta/pelicula-alta.component';
-import { ActorAltaComponent } from './componentes/actor-alta/actor-alta.component';
-import { ActorListadoComponent } from './componentes/actor-listado/actor-listado.component';
-import { PeliculaListadoComponent } from './componentes/pelicula-listado/pelicula-listado.component';
-import { TablaPeliculaComponent } from './componentes/tabla-pelicula/tabla-pelicula.component';
-import { DetallePeliculaComponent } from './componentes/detalle-pelicula/detalle-pelicula.component';
 import { TablaPaisesComponent } from './componentes/tabla-paises/tabla-paises.component';
-import { TablaActorComponent } from './componentes/tabla-actor/tabla-actor.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';
-import { ActorPeliculaComponent } from './componentes/actor-pelicula/actor-pelicula.component';
 import { DetallePaisComponent } from './componentes/detalle-pais/detalle-pais.component';
-import { DetalleActorComponent } from './componentes/detalle-actor/detalle-actor.component';
 import { LoginComponent } from './componentes/login/login.component';
 import { AltaRepartidorComponent } from './componentes/alta-repartidor/alta-repartidor.component';
 import { NavBarComponent } from './componentes/nav-bar/nav-bar.component';
-import { TablaActoresComponent } from './componentes/tabla-actores/tabla-actores.component';
 import { AltaProductoComponent } from './componentes/alta-producto/alta-producto.component';
-import { ProductoDetalleComponent } from './componentes/producto-detalle/producto-detalle.component';    // For Storage    <<<<<<
+import { ProductoDetalleComponent } from './componentes/producto-detalle/producto-detalle.component';
+import { ListadoProductosComponent } from './componentes/listado-productos/listado-productos.component';
+import { AbmContainerComponent } from './componentes/abm-container/abm-container.component';
+import { AltaContainerComponent } from './componentes/alta-container/alta-container.component';
+import { ModificaContainerComponent } from './componentes/modifica-container/modifica-container.component';
+import { BajaContainerComponent } from './componentes/baja-container/baja-container.component';
+import { ListadoContainerComponent } from './componentes/listado-container/listado-container.component';    // For Storage    <<<<<<
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    BusquedaComponent,
-    PeliculaAltaComponent,
-    ActorAltaComponent,
-    ActorListadoComponent,
-    PeliculaListadoComponent,
-    TablaPeliculaComponent,
-    DetallePeliculaComponent,
     TablaPaisesComponent,
-    TablaActorComponent,
-    ActorPeliculaComponent,
     DetallePaisComponent,
-    DetalleActorComponent,
     LoginComponent,
     AltaRepartidorComponent,
     NavBarComponent,
-    TablaActoresComponent,
     AltaProductoComponent,
     ProductoDetalleComponent,
+    ListadoProductosComponent,
+    AbmContainerComponent,
+    AltaContainerComponent,
+    ModificaContainerComponent,
+    BajaContainerComponent,
+    ListadoContainerComponent,
   ],
   imports: [
     BrowserModule,

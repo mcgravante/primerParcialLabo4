@@ -1,27 +1,30 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { BusquedaComponent } from './componentes/busqueda/busqueda.component';
 import { HomeComponent } from './componentes/home/home.component';
 import { LoginComponent } from './componentes/login/login.component';
-import { ActorModule } from './modulos/actor/actor.module';
-import { PeliculasModule } from './modulos/peliculas/peliculas.module';
+import { ContainerModule } from './modulos/container/container.module';
 import { ProductoModule } from './modulos/producto/producto.module';
 import { RepartidorModule } from './modulos/repartidor/repartidor.module';
+import { AdminAuthGuard } from './servicios/admin-auth.guard';
+import { AuthGuard } from './servicios/auth.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: 'bienvenido', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
 
   {
-    path: 'repartidor', loadChildren: () => import('./modulos/repartidor/repartidor.module').then(m => RepartidorModule)
+    path: 'repartidor', loadChildren: () => import('./modulos/repartidor/repartidor.module').then(m => RepartidorModule), canActivate: [AuthGuard]
 
   },
   {
-    path: 'producto', loadChildren: () => import('./modulos/producto/producto.module').then(m => ProductoModule)
+    path: 'producto', loadChildren: () => import('./modulos/producto/producto.module').then(m => ProductoModule), canActivate: [AuthGuard]
+
+  },
+  {
+    path: 'container', loadChildren: () => import('./modulos/container/container.module').then(m => ContainerModule), canActivate: [AdminAuthGuard]
 
   },
   { path: 'bienvenido', component: HomeComponent },
-  { path: 'busqueda', component: BusquedaComponent },
 
   { path: '**', pathMatch: 'full', redirectTo: 'bienvenido' },
 

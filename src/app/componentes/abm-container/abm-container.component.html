@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+
+<body>
+
+    <div class="container py-3">
+        <header>
+            <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
+                <h1 class="display-4 fw-normal">ABM de Containers</h1>
+                <p class="fs-5 text-muted">Acá puedes dar de alta, modificar o borrar containers.</p>
+            </div>
+        </header>
+
+        <main>
+            <h2 class="display-6 text-center mb-4">Listado containers</h2>
+
+            <app-listado-container [listaContainers]="listaContainers"
+                (seSeleccionoContainer)="cambiarContainer($event)"></app-listado-container>
+
+            <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+                <div class="col">
+                    <div class="card mb-4 rounded-3 shadow-sm border-primary">
+                        <div class="card-header py-3 text-white bg-primary border-primary">
+                            <h4 class="my-0 fw-normal">Alta</h4>
+                        </div>
+                        <div class="card-body">
+                            <app-alta-container (seGuardoContainer)="agregoContainer($event)"></app-alta-container>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card mb-4 rounded-3 shadow-sm border-primary">
+                        <div class="card-header py-3 text-white bg-primary border-primary">
+                            <h4 class="my-0 fw-normal">Modificación</h4>
+                        </div>
+                        <div class="card-body">
+                            <app-modifica-container [containerParaModificar]="containerSeleccionado"
+                                (seModificoContainer)="modificoContainer($event)"></app-modifica-container>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card mb-4 rounded-3 shadow-sm border-primary">
+                        <div class="card-header py-3 text-white bg-primary border-primary">
+                            <h4 class="my-0 fw-normal">Baja</h4>
+                        </div>
+                        <div class="card-body">
+                            <app-baja-container [containerParaBorrar]="containerSeleccionado"
+                                (seBorroContainer)="borroContainer($event)"></app-baja-container>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </main>
+    </div>
+
+
+
+</body>
+
+</html>

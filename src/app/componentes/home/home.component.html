@@ -1,20 +1,18 @@
-<app-nav-bar></app-nav-bar>
-
-<div>
-    Usuario: {{login}}
-
-    <br>
-
-    Foto:
-    <br>
-    <img [src]="avatar_url">
-    <br>
-
-    Repositorios públicos: {{public_repos}}
-    <br>
-
-    <a href="https://github.com/mcgravante">GitHub</a>
+<body [ngStyle]="{'background-image': 'url(' + avatar_url + ')'}">
+    <h1>
+        Usuario: {{login}}
+    </h1>
 
     <br>
 
-</div>
+    <h2>
+        Repositorios públicos: {{public_repos}}
+    </h2>
+    <br>
+
+    <h3>
+        <a href={{html_url}}>GitHub</a>
+    </h3>
+
+
+</body>

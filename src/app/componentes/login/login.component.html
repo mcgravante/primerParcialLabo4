@@ -1,26 +1,31 @@
-<app-nav-bar [isLogged]="isLogged"></app-nav-bar>
-
 <!doctype html>
 <html lang="en">
 
 <body class="text-center">
-    <form class="form-signin">
-        <h1 class="h3 mb-3 font-weight-normal">Por favor, ingrese sus datos</h1>
-        <label for="inputEmail" class="sr-only">Usuario</label>
-        <br>
-        <input type="text" placeholder="Usuario" [(ngModel)]='user' name="uname" required>
-        <br>
-        <label for="inputPassword" class="sr-only">Clave</label>
-        <br>
-        <input type="password" placeholder="Clave" [(ngModel)]='password' name="psw" required>
-        <br>
-        <br>
-        <button (click)="Entrar()">Ingresar</button>
-        <br>
-        <br>
-        <input type="submit" (click)="CompletarCamposAdmin()" value="Completar Campos Admin">
-        <input type="submit" (click)="CompletarCamposEmpleado()" value="Completar Campos Empleado">
-    </form>
+
+    <main class="form-signin">
+        <form>
+            <div class="form-floating">
+                <input type="email" class="form-control" id="floatingInput" placeholder="" [(ngModel)]='user'
+                    name="uname" required>
+                <label for="floatingInput">Usuario</label>
+            </div>
+            <div class="form-floating">
+                <input type="password" class="form-control" id="floatingPassword" placeholder="" [(ngModel)]='password'
+                    name="psw" required>
+                <label for="floatingPassword">Clave</label>
+            </div>
+            <button class="w-100 btn btn-lg btn-primary" type="submit" (click)="Entrar()">Ingresar</button>
+            <br>
+            <input class="w-100 btn btn-lg btn-secondary" type="submit" (click)="CompletarCamposAdmin()"
+                value="Completar Campos Admin">
+            <input class="w-100 btn btn-lg btn-secondary" type="submit" (click)="CompletarCamposEmpleado()"
+                value="Completar Campos Empleado">
+        </form>
+    </main>
+
+
+
 </body>
 
 </html>

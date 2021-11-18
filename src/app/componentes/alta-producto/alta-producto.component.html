@@ -1,9 +1,10 @@
-<app-nav-bar></app-nav-bar>
 <!doctype html>
 <html lang="en">
 
 <body class="bg-light">
     <div class="container">
+        <h3 class="row mb-3">Alta Producto</h3>
+
 
         <div class="row g-5">
             <div class="col-md-5 col-lg-4 order-md-last">
@@ -12,53 +13,56 @@
                 </h4>
                 <app-tabla-paises (seSeleccionoPais)="cambiarPais($event)"></app-tabla-paises>
 
+
+
+
             </div>
-            <form [formGroup]="formularioAlta" (ngSubmit)="guardarProducto()">
+            <form class="col-lg-8" [formGroup]="formularioAlta" (ngSubmit)="guardarProducto()">
                 <div class="col-md-7 col-lg-8">
-                    <h4 class="mb-3">Alta Producto</h4>
                     <div class="form-group">
                         <div class="row g-3">
                             <div class="col-sm-6">
-                                <label for="dni">Código</label>
+                                <label for="codigo">Código</label>
                                 <input type="number" class="form-control" formControlName="codigo" placeholder="">
                                 <span class="text-danger"
                                     *ngIf="formularioAlta.get('codigo')?.hasError('required') && formularioAlta.get('codigo')?.touched">Debe
                                     completar
-                                    con código del producto.</span>
+                                    con su codigo.</span>
                             </div>
                             <div class="col-sm-6">
-                                <label for="firstName">Descripción</label>
+                                <label for="description">Descripción</label>
                                 <input type="text" class="form-control" formControlName="descripcion" placeholder="">
                                 <span class="text-danger"
                                     *ngIf="formularioAlta.get('descripcion')?.hasError('required') && formularioAlta.get('descripcion')?.touched">Debe
                                     completar
-                                    con descripción del producto.</span>
+                                    con su descripcion.</span>
                             </div>
 
                             <div class="col-sm-6">
-                                <label for="edad">Precio</label>
+                                <label for="precio">Precio</label>
                                 <input type="number" class="form-control" formControlName="precio" placeholder="">
                                 <span class="text-danger"
                                     *ngIf="formularioAlta.get('precio')?.hasError('required') && formularioAlta.get('precio')?.touched">Debe
-                                    completar con precio del producto.</span>
+                                    completar con su precio.</span>
                             </div>
                         </div>
 
                         <div class="mb-3">
-                            <label for="email">Stock </label>
-                            <input type="number" class="form-control" formControlName="stock" placeholder="">
+                            <label for="stock">Stock </label>
+                            <input type="number" class="form-control" formControlName="stock"
+                                placeholder="">
                             <span class="text-danger"
                                 *ngIf="formularioAlta.get('stock')?.hasError('required') && formularioAlta.get('stock')?.touched">Debe
-                                completar con stock del producto.</span>
+                                completar con su cantidad de stock.</span>
                         </div>
 
                         <div class="my-3">
-                            <label class="text-muted">Es comestible</label>
+                            <label class="text-muted">Comestible</label>
 
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" id="comestibleSi" value=true
                                     formControlName="comestible">
-                                <label class="form-check-label" for="unidadPropiaSi">
+                                <label class="form-check-label" for="comestibleSi">
                                     SI
                                 </label>
                             </div>
@@ -66,13 +70,13 @@
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" id="comestibleNo" value=false
                                     formControlName="comestible">
-                                <label class="form-check-label" for="unidadPropiaNo">
+                                <label class="form-check-label" for="comestibleNo">
                                     NO
                                 </label>
                             </div>
 
                             <span class="text-danger"
-                                *ngIf="formularioAlta.get('unidadPropiaNo')?.hasError('required') && formularioAlta.get('unidadPropiaNo')?.touched">Debes
+                                *ngIf="formularioAlta.get('comestibleNo')?.hasError('required') && formularioAlta.get('comestibleNo')?.touched">Debes
                                 seleccionar una opción.</span>
                         </div>
 
@@ -90,7 +94,7 @@
 
                         <button class="btn btn-primary btn-lg btn-block" [disabled]="formularioAlta.invalid"
                             type="submit">Cargar
-                            actor</button>
+                            producto</button>
                     </div>
                 </div>
             </form>

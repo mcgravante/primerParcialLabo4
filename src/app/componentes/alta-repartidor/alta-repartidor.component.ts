@@ -42,7 +42,7 @@ export class AltaRepartidorComponent implements OnInit {
       this.showSuccess();
     }).catch((error) => {
       this.showError(error);
-    });;
+    });
   }
 
   showSuccess() {

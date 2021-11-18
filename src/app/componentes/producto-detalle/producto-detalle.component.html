@@ -1,1 +1,52 @@
-<p>producto-detalle works!</p>
+<!doctype html>
+<html lang="en">
+
+<body>
+
+    <main>
+        <div class="container py-4">
+
+            <div class="p-5 mb-4 bg-light rounded-3">
+                <div class="container-fluid py-5">
+                    <h1 class="display-5 fw-bold">Listado Productos</h1>
+                    <app-listado-productos (seSeleccionoProducto)="cambiarProducto($event)">
+                    </app-listado-productos>
+                </div>
+            </div>
+
+            <div *ngIf="productoSeleccionado!=null" class="row align-items-md-stretch">
+                <div class="col-md-6">
+                    <div class="h-100 p-5 text-white bg-dark rounded-3">
+                        <h2>Detalle</h2>
+
+                        <span>Código: {{productoSeleccionado.codigo}}</span>
+                        <br>
+                        <span>Descripción: {{productoSeleccionado.descripcion}}</span>
+                        <br>
+                        <span>Precio: {{productoSeleccionado.precio}}</span>
+                        <br>
+                        <span>Stock: {{productoSeleccionado.stock}}</span>
+                        <br>
+                        <span>Comestible: {{productoSeleccionado.comestible}}</span>
+                        <br>
+
+                        <button class="btn btn-outline-light" type="button" (click)="limpiarDetalle()">Limpiar</button>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="h-100 p-5 bg-light border rounded-3">
+                        <h2>País del producto</h2>
+                        <app-detalle-pais [paisNombre]="productoSeleccionado.pais"></app-detalle-pais>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </main>
+
+
+
+</body>
+
+</html>

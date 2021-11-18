@@ -10,27 +10,22 @@ import { PaisService } from 'src/app/servicios/pais.service';
 export class TablaPaisesComponent implements OnInit {
   @Output() seSeleccionoPais: EventEmitter<any> = new EventEmitter<any>();
 
-
+  public continente: string = "Americas"
+  public listaContinentes: string[] = ["Africa", "Americas", "Asia", "Europe", "Oceania"]
   public listaPaises: Pais[] =
-    [
-      // { nombre: "Argentina", bandera: "https://www.countryflags.com/wp-content/uploads/flag-jpg-xl-7-1536x963.jpg" },
-      // { nombre: "Brasil", bandera: "https://www.countryflags.com/wp-content/uploads/brazil-flag-png-large.png" },
-      // { nombre: "Chile", bandera: "https://www.countryflags.com/wp-content/uploads/chile-flag-png-large.png" },
-      // { nombre: "Uruguay", bandera: "https://www.countryflags.com/wp-content/uploads/uruguay-flag-png-large.png" },
-      // { nombre: "Paraguay", bandera: "https://www.countryflags.com/wp-content/uploads/paraguay-flag-png-large.png" },
-      // { nombre: "Bolivia", bandera: "https://www.countryflags.com/wp-content/uploads/flag-jpg-xl-1536x1050.jpg" },
-    ]
+    []
 
   public bandera: string;
 
   constructor(private paisService: PaisService) { }
 
   ngOnInit(): void {
+    this.bandera = "";
     let name: string;
     let bandera: string;
     this.paisService.getPaises().subscribe((paises: any) => {
       for (let index = 0; index < paises.length; index++) {
-        if (paises[index].region == "Europe" || paises[index].region == "Africa") {
+        if (paises[index].region == this.continente) {
           name = paises[index].name.common;
           bandera = paises[index].flags.png;
           this.listaPaises.push(new Pais(name, bandera))
@@ -44,6 +39,12 @@ export class TablaPaisesComponent implements OnInit {
   SeleccionarPais(pais: Pais) {
     this.bandera = pais.bandera;
     this.seSeleccionoPais.emit(pais.nombre);
+  }
+
+  SeleccionarContinente(continente: string) {
+    this.continente = continente;
+    this.seSeleccionoPais.emit("");
+    this.ngOnInit();
   }
 
   shuffle(array) {

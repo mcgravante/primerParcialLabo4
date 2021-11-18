@@ -1,0 +1,22 @@
+<ul class="list-group mb-3">
+    <li class="list-group-item lh-condensed">
+        <div>
+            <ul class="list-group mb-3 text-muted">
+                <li class="row">
+                    <span class="col">Código</span>
+                    <span class="col">Marca</span>
+                    <span class="col">Capacidad</span>
+
+                </li>
+                <li (click)="SeleccionarContainer(container)"
+                    class="row list-group-item d-flex justify-content-between lh-condensed "
+                    *ngFor="let container of listaContainers">
+                    <span class="col">{{container.codigo}}</span>
+                    <span class="col">{{container.marca}}</span>
+                    <span class="col">{{container.capacidad}}</span>
+
+                </li>
+            </ul>
+        </div>
+    </li>
+</ul>
