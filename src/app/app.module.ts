@@ -29,7 +29,10 @@ import { AbmContainerComponent } from './componentes/abm-container/abm-container
 import { AltaContainerComponent } from './componentes/alta-container/alta-container.component';
 import { ModificaContainerComponent } from './componentes/modifica-container/modifica-container.component';
 import { BajaContainerComponent } from './componentes/baja-container/baja-container.component';
-import { ListadoContainerComponent } from './componentes/listado-container/listado-container.component';    // For Storage    <<<<<<
+import { ListadoContainerComponent } from './componentes/listado-container/listado-container.component';
+import { CargaContainerComponent } from './componentes/carga-container/carga-container.component';
+import { CargarProductoEnContainerComponent } from './componentes/cargar-producto-en-container/cargar-producto-en-container.component';
+import { KeysPipe } from './pipes/keys.pipe';    // For Storage    <<<<<<
 
 
 @NgModule({
@@ -49,6 +52,9 @@ import { ListadoContainerComponent } from './componentes/listado-container/lista
     ModificaContainerComponent,
     BajaContainerComponent,
     ListadoContainerComponent,
+    CargaContainerComponent,
+    CargarProductoEnContainerComponent,
+    KeysPipe,
   ],
   imports: [
     BrowserModule,

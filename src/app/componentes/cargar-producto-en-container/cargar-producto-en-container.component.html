@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+
+<body class="bg-light">
+    <div class="container">
+        <div class="row">
+            <form class="col-lg-8" [formGroup]="formularioCargaProducto" (ngSubmit)="cargarContainer()">
+                <div class="col-md-7 col-lg-8">
+                    <div *ngIf="containerParaCargar" class="form-group">
+                        <div class="row">
+                            <label for="container">Container</label>
+                            <input type="label" class="form-control" formControlName="container" placeholder="">
+                            <span class="text-danger"
+                                *ngIf="formularioCargaProducto.get('container')?.hasError('required') && formularioCargaProducto.get('container')?.touched">Debe
+                                seleccionar container.</span>
+                        </div>
+                        <div class="row">
+                            <label for="capacidad">Capacidad</label>
+                            <input type="label" class="form-control" formControlName="capacidad" placeholder="">
+                            <span class="text-danger"
+                                *ngIf="formularioCargaProducto.get('capacidad')?.hasError('required') && formularioCargaProducto.get('capacidad')?.touched">Debe
+                                seleccionar container.</span>
+                        </div>
+
+                        <div class="row">
+                            <label for="producto">Producto</label>
+                            <input type="label" class="form-control" formControlName="producto" placeholder="">
+                            <span class="text-danger"
+                                *ngIf="formularioCargaProducto.get('producto')?.hasError('required') && formularioCargaProducto.get('producto')?.touched">Debe
+                                seleccionar producto a cargar.</span>
+                        </div>
+
+                        <div class="row">
+                            <label for="stock">Stock</label>
+                            <input type="label" class="form-control" formControlName="stock" placeholder="">
+                            <span class="text-danger"
+                                *ngIf="formularioCargaProducto.get('stock')?.hasError('required') && formularioCargaProducto.get('stock')?.touched">Debe
+                                seleccionar producto.</span>
+                        </div>
+
+                        <div class="row">
+                            <label for="cantidad">Cantidad</label>
+                            <input type="label" class="form-control" formControlName="cantidad" placeholder="">
+                            <span class="text-danger"
+                                *ngIf="formularioCargaProducto.get('cantidad')?.hasError('required') && formularioCargaProducto.get('cantidad')?.touched">Debe
+                                seleccionar cantidad a cargar.</span>
+                            <br>
+                            <div *ngIf="formularioCargaProducto.errors?.excedeStock && (formularioCargaProducto.touched || formularioCargaProducto.dirty)"
+                                class="text-danger">
+                                Excede el stock disponible del producto.
+                            </div>
+                            <br>
+                            <div *ngIf="formularioCargaProducto.errors?.excedeCapacidad && (formularioCargaProducto.touched || formularioCargaProducto.dirty)"
+                                class="text-danger">
+                                Excede la capacidad total del container.
+                            </div>
+                        </div>
+                        <br>
+
+                        <button class="btn btn-primary btn-lg btn-block" [disabled]="formularioCargaProducto.invalid"
+                            type="submit">Cargar
+                            container</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+    </div>
+
+</body>
+
+</html>

@@ -35,7 +35,21 @@ export class ContainerService {
       var containerForUpdate = this.firestore.collection("containers").doc(containerId);
       containerForUpdate.update({
         marca: container.marca,
-        capacidad: container.capacidad
+        capacidad: container.capacidad,
+      })
+        .then(() => { })
+        .catch((error) => { });
+      doc.unsubscribe()
+    })
+  }
+
+  actualizoProductosContainer(container: Container) {
+    let doc = this.getContainer(container).subscribe((containers: any) => {
+      const containerId = containers[0].payload.doc.id;
+      var containerForUpdate = this.firestore.collection("containers").doc(containerId);
+      containerForUpdate.update({
+        capacidad: container.capacidad,
+        productosCargados: JSON.stringify(container.productosCargados)
       })
         .then(() => { })
         .catch((error) => { });

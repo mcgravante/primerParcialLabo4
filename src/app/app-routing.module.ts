@@ -21,7 +21,7 @@ const routes: Routes = [
 
   },
   {
-    path: 'container', loadChildren: () => import('./modulos/container/container.module').then(m => ContainerModule), canActivate: [AdminAuthGuard]
+    path: 'container', loadChildren: () => import('./modulos/container/container.module').then(m => ContainerModule), canActivate: [AuthGuard]
 
   },
   { path: 'bienvenido', component: HomeComponent },

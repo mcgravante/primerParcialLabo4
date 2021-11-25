@@ -17,12 +17,13 @@ export class ListadoProductosComponent implements OnInit {
 
   ngOnInit(): void {
     let arrayProductos = [];
-    this.productoService.getProductos().subscribe((productos: any) => {
+    let productosSubs = this.productoService.getProductos().subscribe((productos: any) => {
       for (let index = 0; index < productos.length; index++) {
         let producto: Producto = productos[index].payload.doc.data();
         arrayProductos.push(producto);
       }
       this.listaProductos = arrayProductos;
+      productosSubs.unsubscribe();
     })
   }
 

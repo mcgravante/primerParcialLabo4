@@ -16,8 +16,8 @@ export class ProductoService {
     return this.firestore.collection("productos").snapshotChanges();
   }
 
-  getProducto(key: string) {
-    return this.firestore.collection("productos").doc(key).valueChanges();
+  getProducto(producto: Producto) {
+    return this.firestore.collection("productos", ref => ref.where('codigo', '==', producto.codigo)).snapshotChanges();
   }
 
   guardarProducto(producto: Producto) {
@@ -29,5 +29,18 @@ export class ProductoService {
       pais: producto.pais,
       comestible: producto.comestible
     });
+  }
+
+  cambiarDatosProducto(producto: Producto) {
+    let doc = this.getProducto(producto).subscribe((productos: any) => {
+      const productoId = productos[0].payload.doc.id;
+      var productoForUpdate = this.firestore.collection("productos").doc(productoId);
+      productoForUpdate.update({
+        stock: producto.stock
+      })
+        .then(() => { })
+        .catch((error) => { });
+      doc.unsubscribe()
+    })
   }
 }

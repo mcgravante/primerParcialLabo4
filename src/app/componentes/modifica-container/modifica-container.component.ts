@@ -38,7 +38,7 @@ export class ModificaContainerComponent implements OnChanges {
     let marca = this.formularioModificacion.controls['marca'].value;
     let capacidad = this.formularioModificacion.controls['capacidad'].value;
 
-    let container = new Container(this.containerParaModificar.codigo, marca, capacidad);
+    let container = new Container(this.containerParaModificar.codigo, marca, capacidad, this.containerParaModificar.productosCargados);
     this.containerService.cambiarDatosContainer(container);
     this.showSuccess();
     this.seModificoContainer.emit(container);

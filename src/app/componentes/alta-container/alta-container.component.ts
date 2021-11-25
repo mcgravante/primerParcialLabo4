@@ -2,6 +2,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { Container } from 'src/app/clases/container';
+import { Producto } from 'src/app/clases/producto';
 import { ContainerService } from 'src/app/servicios/container.service';
 
 @Component({
@@ -29,8 +30,9 @@ export class AltaContainerComponent implements OnInit {
     let codigo = this.formularioAlta.controls['codigo'].value;
     let marca = this.formularioAlta.controls['marca'].value;
     let capacidad = this.formularioAlta.controls['capacidad'].value;
+    let productosCargados: Producto[] = [];
 
-    let container = new Container(codigo, marca, capacidad);
+    let container = new Container(codigo, marca, capacidad, productosCargados);
     this.containerService.guardarContainer(container).then(resp => {
       this.showSuccess();
       this.seGuardoContainer.emit(container);
