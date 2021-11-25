@@ -20,6 +20,10 @@ export class CargaContainerComponent implements OnInit {
     let listaContainersSubscription = this.containerService.getContainers().subscribe((containers: any) => {
       for (let index = 0; index < containers.length; index++) {
         let container: Container = containers[index].payload.doc.data();
+        if (containers[index].payload.doc.data().productosCargados) {
+          let productosCargados = JSON.parse(containers[index].payload.doc.data().productosCargados)
+          container.productosCargados = productosCargados;
+        }
         arrayContainers.push(container);
       }
       this.listaContainers = arrayContainers;

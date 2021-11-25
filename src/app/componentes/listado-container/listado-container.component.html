@@ -15,7 +15,7 @@
                     <span class="col">{{container.codigo}}</span>
                     <span class="col">{{container.marca}}</span>
                     <span class="col">{{container.capacidad}}</span>
-                    <span class="col" *ngFor="let producto of container.productosCargados | keys">
+                    <span class="col" *ngFor="let producto of container.productosCargados">
                         <span class="row">{{producto.descripcion}}</span>
                         <br>
                         <span class="row">{{producto.stock}}</span>
